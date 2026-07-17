@@ -1,6 +1,6 @@
-=============================================
+--------------------------------------------------------------------------------
  WINNERS CHAPEL INT'L MONTREAL — WEBSITE
-=============================================
+--------------------------------------------------------------------------------
 
 This is the source code for the official website of Winners Chapel Int'l
 Montreal, a church located at 9730 Boulevard Gouin O, Pierrefonds, QC.
