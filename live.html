@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live – Winners Chapel Int'l Montreal</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="moving-text-background-full">
+    <div class="moving-text-line line-1">FAITH • FAMILY • FUTURE • HOME • FAITH • FAMILY • FUTURE • HOME • </div>
+    <div class="moving-text-line line-2">WELCOME • CONNECT • GROW • SERVE • WELCOME • CONNECT • GROW • SERVE • </div>
+    <div class="moving-text-line line-1">FAITH • FAMILY • FUTURE • HOME • FAITH • FAMILY • FUTURE • HOME • </div>
+    <div class="moving-text-line line-2">WELCOME • CONNECT • GROW • SERVE • WELCOME • CONNECT • GROW • SERVE • </div>
+    <div class="moving-text-line line-1">FAITH • FAMILY • FUTURE • HOME • FAITH • FAMILY • FUTURE • HOME • </div>
+    <div class="moving-text-line line-2">WELCOME • CONNECT • GROW • SERVE • WELCOME • CONNECT • GROW • SERVE • </div>
+  </div>
+
+  <div id="page-content">
+  <div id="header"></div>
+
+  <main class="live-page">
+    <div class="live-hero">
+      <p class="section-eyebrow" data-en="Live" data-fr="En Direct">Live</p>
+      <h1 class="section-title" data-en="Join Us Live" data-fr="Rejoignez-Nous en Direct">Join Us Live</h1>
+      <p class="section-sub" data-en="Can't make it in person? Watch our services live from wherever you are." data-fr="Vous ne pouvez pas venir en personne ? Suivez nos services en direct où que vous soyez.">Can't make it in person? Watch our services live from wherever you are.</p>
+    </div>
+
+    <div class="live-player">
+      <div class="live-player-frame">
+        <span class="live-player-icon">▶</span>
+        <p data-en="Live stream starts at service time" data-fr="La diffusion en direct commence à l'heure du service">Live stream starts at service time</p>
+      </div>
+      <div class="live-schedule">
+        <div class="live-schedule-item">
+          <span class="day" data-en="Sunday" data-fr="Dimanche">Sunday</span>
+          <span class="hour" data-en="9am" data-fr="09H00">9am</span>
+        </div>
+        <div class="live-schedule-item">
+          <span class="day" data-en="Wednesday" data-fr="Mercredi">Wednesday</span>
+          <span class="hour" data-en="6pm" data-fr="18H00">6pm</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="live-block">
+      <h2 data-en="Missed a Service?" data-fr="Vous Avez Manqué un Service ?">Missed a Service?</h2>
+      <p data-en="Catch up on our latest messages and teachings anytime." data-fr="Rattrapez nos derniers messages et enseignements à tout moment.">Catch up on our latest messages and teachings anytime.</p>
+      <a href="index.html#messages" class="live-cta-secondary" data-en="View Past Messages →" data-fr="Voir les Messages Passés →">View Past Messages →</a>
+    </div>
+
+    <div class="live-block">
+      <h2 data-en="Need Prayer While You Watch?" data-fr="Besoin de Prière Pendant que Vous Regardez ?">Need Prayer While You Watch?</h2>
+      <p data-en="Send us a prayer request and our team will reach out to you." data-fr="Envoyez-nous une demande de prière et notre équipe vous contactera.">Send us a prayer request and our team will reach out to you.</p>
+      <a href="mailto:admin@winnerschapelmontreal.org?subject=prayer%20request" class="btn-primary live-cta-primary" data-en="Send Prayer Request →" data-fr="Envoyer une Demande de Prière →">Send Prayer Request →</a>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+  </div>
+
+  <script>
+    async function loadPartial(file, targetId) {
+      const res = await fetch(file);
+      const html = await res.text();
+      document.getElementById(targetId).innerHTML = html;
+    }
+
+    Promise.all([
+      loadPartial('header.html', 'header'),
+      loadPartial('footer.html', 'footer'),
+    ]).then(() => {
+      // Load script.js after all partials are injected so it can find the DOM
+      const script = document.createElement('script');
+      script.src = 'script.js';
+      document.body.appendChild(script);
+    });
+  </script>
+
+</body>
+</html>

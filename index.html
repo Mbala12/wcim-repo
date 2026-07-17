@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome Home – Winners Chapel Int'l Montreal</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="moving-text-background-full">
+    <div class="moving-text-line line-1">FAITH • FAMILY • FUTURE • HOME • FAITH • FAMILY • FUTURE • HOME • </div>
+    <div class="moving-text-line line-2">WELCOME • CONNECT • GROW • SERVE • WELCOME • CONNECT • GROW • SERVE • </div>
+    <div class="moving-text-line line-1">FAITH • FAMILY • FUTURE • HOME • FAITH • FAMILY • FUTURE • HOME • </div>
+    <div class="moving-text-line line-2">WELCOME • CONNECT • GROW • SERVE • WELCOME • CONNECT • GROW • SERVE • </div>
+    <div class="moving-text-line line-1">FAITH • FAMILY • FUTURE • HOME • FAITH • FAMILY • FUTURE • HOME • </div>
+    <div class="moving-text-line line-2">WELCOME • CONNECT • GROW • SERVE • WELCOME • CONNECT • GROW • SERVE • </div>
+  </div>
+
+  <div id="page-content">
+    <div id="header"></div>
+    <div id="body"></div>
+    <div id="footer"></div>
+  </div>
+
+  <script>
+    async function loadPartial(file, targetId) {
+      const res = await fetch(file);
+      const html = await res.text();
+      document.getElementById(targetId).innerHTML = html;
+    }
+
+    Promise.all([
+      loadPartial('header.html', 'header'),
+      loadPartial('body.html',   'body'),
+      loadPartial('footer.html', 'footer'),
+    ]).then(() => {
+      // Load script.js after all partials are injected so it can find the DOM
+      const script = document.createElement('script');
+      script.src = 'script.js';
+      document.body.appendChild(script);
+    });
+  </script>
+
+</body>
+</html>
