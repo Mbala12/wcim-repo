@@ -61,6 +61,32 @@ function initHeroSlideshow() {
   }, 4000);
 }
 
+// ─── Mobile Nav Toggle ──────────────────────────────────────────────────────
+
+function initMobileNav() {
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  if (!toggle || !links) return;
+
+  const closeMenu = () => {
+    links.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  };
+
+  toggle.addEventListener('click', () => {
+    const isOpen = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeMenu();
+  });
+}
+
 // ─── Sticky Nav ───────────────────────────────────────────────────────────────
 
 function initStickyNav() {
@@ -211,6 +237,7 @@ function showFormMessage(form, text, success) {
 // in the DOM (see index.html), so DOMContentLoaded has already fired by the
 // time this runs — call the inits directly instead of waiting for it.
 initLangToggle();
+initMobileNav();
 initHeroSlideshow();
 initStickyNav();
 initContactForm();
